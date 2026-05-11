@@ -39,3 +39,22 @@ for row in reader:
     else:    
         dates.append(current_date)
         unemployement_rates.append(urates)
+
+
+    
+#Graphing the processed data
+plt.style.use('dark_background')
+figure, graph = plt.subplots()
+
+graph.plot(dates, unemployement_rates, color='blue')
+
+#Titles and labels
+graph.set_title('Ohio Unemployment (by Month): 1976 - 2022', fontsize = 24)
+graph.set_ylabel("Unemp Rate", fontsize = 16)
+graph.set_xlabel("Date", fontsize = 16)
+
+# Formats the dates nicely
+figure.autofmt_xdate()
+
+#Saves the figure
+plt.savefig("ohio_unemployment.png", bbox_inches = 'tight', pad_inches = 1.0)
