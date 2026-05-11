@@ -23,3 +23,19 @@ header_row = next(reader)
 for index, col_title in enumerate(header_row):
     print(f'{index}: {col_title}')
 
+# Processing the info from the file
+dates = []
+unemployement_rates = []
+
+for row in reader:
+    try:
+        current_date = datetime.strptime(row[0], '%Y-%m-%d')
+
+        #converts uneployment rate into float
+        urates = float(row[1])
+    except ValueError:
+        print(current_date)
+
+    else:    
+        dates.append(current_date)
+        unemployement_rates.append(urates)
